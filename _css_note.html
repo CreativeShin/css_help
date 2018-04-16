@@ -1,0 +1,354 @@
+<!doctype html>
+
+<html>
+    <head>
+        <title>Advanced CSS</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            body{
+                font-family: sans-serif;
+                font-size: 16px;
+                box-sizing: border-box;
+                line-height: 1.8;
+            }
+            .header{
+                position: relative;
+                height: 48vh;
+                background-image: linear-gradient(to right, #08112c, #c467cc); 
+                background-size: cover;
+                background-position: top left;
+            }
+            .hero{
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+            .header-text{
+                font-weight: normal;
+                letter-spacing: 12px;
+                font-size: 48px;
+                text-transform: uppercase;
+                color: #fff;
+            }
+            .header-sub{
+                background: #312;
+                color: #fff;
+                padding:0 5px;
+            }
+
+            .wrapper{
+                width:500px;
+                margin: 0 auto;
+                animation-name: onLoadAnimation;
+                animation-duration: 2s;
+            }
+
+            h2, h3, h4, p {
+                margin: 10px 0;
+            }
+            em, .gray{
+                color: #777;
+            }
+            pre,code{
+                display: block;
+                background: #222;
+                color:#fff;
+                padding: 10px;
+                font-family: monospace;
+                /* font-size: 12px; */
+            }
+
+            /* Keyframes Animation */
+
+            .example-keyframes{
+                padding:10px;
+                font-size: 25px;
+                animation-name: genericAnimation;
+                animation-duration: 5s;
+            }
+
+            @keyframes genericAnimation{
+                0%{
+                    transform: translate(-100px);
+                    opacity: 0;
+                }
+                100%{
+                    transform: translate(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes onLoadAnimation{
+                0%{
+                    opacity: 0;
+                }
+                100%{
+                    opacity: 1;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header class="header">
+            <div class="hero">
+                <h1 class="header-text">Useful CSS <span class="header-sub">Stuff</span></h1>
+            </div>
+        </header>
+
+        <!-- content -->
+        <div class="wrapper">
+        
+            <section class="generic-section">
+                <h2 class="generic-section-heading">Animations In CSS</h2>
+                <div class="generic-section-content">
+                    <h4 class="title">Keyframes and Transition</h4>
+                    <div class="content">
+                        <div class="example">
+                                <p class="example-keyframes">
+                                    Keyframes Here!
+                                </p>
+                        </div>
+                        <ol>
+                            <li>Browsers are well optimized for transform and opacity in keyframes.</li>
+                            <li>Backface visibility - hidden in the parent is used to fix the shakes.</li>
+                            <li>We can add animations on events and not just at page load.</li>  
+                            <li><strong>Keyframes:</strong> 
+<pre>
+    @keyframes animationName{
+        0%{
+            
+        }
+        100%{
+
+        }
+    }
+</pre>
+                            </li> 
+                            <li>
+                                The way we add animation to an element: 
+<pre>
+    p{
+        animation-name: animationName;
+        animation-duration: 1s;
+    }
+</pre>
+                            </li>
+                            <li>
+                                Other properties: 
+<pre>
+    p{
+        animation-timing-function: ease-in;
+        animation-delay: 2s;
+
+    }
+</pre>
+                                
+                            </li>
+                            <li>
+                                Ex Definition : 
+<pre>
+        @keyframes genericAnimation{
+            0%{
+                transform: translate(-100px);
+                opacity: 0;
+            }
+            100%{
+                transform: translate(0);
+                opacity: 1;
+            }
+        }
+</pre>
+                            </li>
+                            <li>
+                                Example:
+<pre>
+        .example-keyframes{
+            padding:10px;
+            font-size: 25px;
+            animation-name: genericAnimation;
+            animation-duration: 5s;
+        }
+</pre>
+                            </li>
+                            
+                        </ol>
+                        
+                    </div>
+                    
+                </div>
+            </section>
+            <section class="generic-section">
+                <h2 class="generic-section-heading">Some CSS Properties</h2>
+                <div class="generic-section-content">
+                    <h4 class="title">Pseudo Class and Pseudo Elements</h4>
+                    <div class="content">
+                        <ol>
+                            <li><strong>Pseudo Classes</strong> are used to select elements in special conditions or state.
+<pre>
+    :link
+    :visited 
+    :hover
+    :active
+</pre> 
+                            </li>
+                            <li>UI Pseudo Classes: 
+<pre>
+    :enabled
+    :disabled
+    :checked
+</pre> 
+                            </li> 
+                            <li>Pseudo Elements allow us to style certain parts of element.                     
+<pre>
+    ::before
+    ::after
+    ::first-letter
+    ::first-line
+</pre>
+                            </li>
+                            <li>After pseudo element adds a virtual element.</li>
+                            <li>
+<pre>
+    
+    .btn::after{
+        content: "";
+        display: inline-block; /*As the button is inline block*/
+        height: 100%; /*Treated as a child*/
+        width: 100%;
+        border-radius: 100px;
+        position: absolute;
+        top:0;
+        left:0;
+        z-index: -1;
+        transition: all 0.4s;
+    }
+</pre>
+                            </li>
+                            <li>Note: <code>animation-fill-mode: backwards;</code>Applies the styles of 0% before the animation starts. It is used when animation-delay is there.</li>
+                        </ol>
+                    </div>
+                    
+                </div>
+            </section>
+
+            <section class="generic-section">
+                <h2 class="generic-section-heading">CSS in Depth</h2>
+                <div class="generic-section-content">
+                    <h4 class="title">3 Pillars Of CSS</h4>
+                    <div class="content">
+                        <ol>
+                            <li>
+                            <em>&raquo; Responsive Design</em>
+                                <p>Fluid Designs, Media Queries, Correct Unit, Mobile First vs Desktop First etc.</p>
+                            </li>
+                            <li>
+                            <em>&raquo; Writing maintainable and Scalable Code</em>
+                                <p>Clean, Easy To Understand, Growth, Reusable, Architecture etc.</p>
+                            </li>
+                            <li>
+                            <em>&raquo; Web Performance</em>
+                                <p>Less HTTP Requests,Less Code, Compress Code, Preprocessor, Less Images, Compressed Images etc.</p>
+                            </li>
+                            
+
+                        </ol>
+                        <h4 class="title">Behind the Scene</h4>
+                        <div class="content">
+                            <ol>
+                                <li>Load HTML</li>
+                                <li>Parse HTML</li>
+                                <li>DOM</li>
+                                <li>Load CSS</li>
+
+                                <li>
+                                    CSS Parse
+                                    <ol class="gray" type="a">
+                                        <li>Resolving Conflicting CSS Declarations(Cascade)</li>
+                                        <li>Process the final CSS Value</li>
+                                    </ol>
+                                </li>
+                                <li>CSS Object Model</li>
+                                <li>(DOM + CSS Object Model) = Render Tree</li>
+                                <li>Website Rendering (Visual Formatting Model)</li>
+                                <li>Final Rendered Website</li>
+                            </ol>
+                        </div>
+                        <h4 class="title">Definitions</h4>
+                        <div class="content">
+                            <ol>
+                                <li><strong>Cascade</strong> is the process of combining different stylesheets and resolving conflicts between different CSS rules and declarations, when more than one rule applies to a certain element.</li>
+                                <li>CSS declarations marked with <em>!important</em> have the highest priority.</li>
+                                <li>We should use <em>!important</em> as the last resource, it is better to use correct specificity. More maintainable code.</li>
+                                <li>Inline styles will always have priority over styles in external stylesheets.</li>
+                                <li>A selector that contains one ID is more specific than one with 1000 classes.</li>
+                                <li>A selector with one class is more specific than one with 1000 elements.</li>
+                                <li>The universal selector (<strong>*</strong>) has no specificity.</li>
+                                <li>We should rely more on specificity than order of the selectors.</li>
+                                <li>We should always put author stylesheets last when using 3rd party stylesheets.</li>
+                            </ol>
+                        </div>
+                </div>
+            </section>
+        </div>  
+        <!-- <section class="generic-section">
+                <h2 class="generic-section-heading">Animations In CSS</h2>
+                <div class="generic-section-content">
+                    <h4 class="title">Keyframes and Transition</h4>
+                    <p class="content"></p>
+                </div>
+            </section> -->
+
+        <!--  -->
+
+    </body>
+
+
+</html>
+
+<!-- 
+    transition and keyframes
+
+ -->
+ <!-- 
+    pseudo elements and pseudo classes
+
+    .btn:link{} here link is pseudo class
+    pseudo classes are special states of a selector. 
+    Use them to style elements under special conditions.
+
+    pseudo elements
+
+    pseudo elements allow us to style certain parts of element.
+    after pseudo element adds a virtual element.
+
+     animation-fill-mode: backwards;
+    /* Applies the styles of 0% before the animation starts. */
+
+    .btn::after{
+    content: "";
+    display: inline-block; /*As the button is inline block*/
+    height: 100%; /*Treated as a child*/
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: -1;
+    transition: all 0.4s;
+}
+
+ROOT font size is set in the html selector. REM = root font-size * value;
+  -->
+
+  <!-- 
+      SASS
+
+      Sass is a CSS Preprocessor, an extension of CSS that adds a lot of power and elegance to the basic language.
+
+      SASS source code - sass compiler - css code
+   -->
