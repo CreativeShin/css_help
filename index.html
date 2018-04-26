@@ -179,6 +179,25 @@
                         </ol>
                         
                     </div>
+                    <h4 class="title">Delay in Animations</h4>
+                    <div class="content">
+                        <ol>
+                            <li>
+<pre>
+    animation: moveInBottom 0.5s ease-out .75s; /* Has Delay*/
+    animation-fill-mode: backwards;
+</pre>
+                            </li>
+
+                            <li>
+                                Here the animation has delay. The styles we defined for <strong>0%</strong> won't take effect until the time defined in the delay property has passed. 
+                            </li>
+                            <li>
+                                We can solve this problem by using <code>animation-fill-mode: backwards;</code> which applies the styles defined in <strong>0%</strong> before the duration defined in delay has passed.
+                            </li>
+                            <li>Read in more detail at <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations">MDN</a>.</li>
+                        </ol>
+                    </div>
                     
                 </div>
             </section>
@@ -292,63 +311,45 @@
                                 <li>We should always put author stylesheets last when using 3rd party stylesheets.</li>
                             </ol>
                         </div>
+                 </div>
                 </div>
             </section>
-        </div>  
-        <!-- <section class="generic-section">
-                <h2 class="generic-section-heading">Animations In CSS</h2>
+            <section class="generic-section">
+                <h2 class="generic-section-heading">Preprocessors: SASS</h2>
                 <div class="generic-section-content">
-                    <h4 class="title">Keyframes and Transition</h4>
-                    <p class="content"></p>
+                    <h4 class="title">Configuring SASS</h4>
+                    <div class="content">
+                    
+                    </div>   
                 </div>
-            </section> -->
-
-        <!--  -->
-
+            </section>        
+        </div>  
     </body>
 
 
 </html>
 
-<!-- 
-    transition and keyframes
 
- -->
- <!-- 
-    pseudo elements and pseudo classes
 
-    .btn:link{} here link is pseudo class
-    pseudo classes are special states of a selector. 
-    Use them to style elements under special conditions.
-
-    pseudo elements
-
-    pseudo elements allow us to style certain parts of element.
-    after pseudo element adds a virtual element.
-
-     animation-fill-mode: backwards;
-    /* Applies the styles of 0% before the animation starts. */
-
-    .btn::after{
-    content: "";
-    display: inline-block; /*As the button is inline block*/
-    height: 100%; /*Treated as a child*/
-    width: 100%;
-    border-radius: 100px;
-    position: absolute;
-    top:0;
-    left:0;
-    z-index: -1;
-    transition: all 0.4s;
-}
-
-ROOT font size is set in the html selector. REM = root font-size * value;
-  -->
+<!-- ROOT font size is set in the html selector. REM = root font-size * value; -->
 
   <!-- 
       SASS
-
       Sass is a CSS Preprocessor, an extension of CSS that adds a lot of power and elegance to the basic language.
-
       SASS source code - sass compiler - css code
    -->
+
+
+<!-- ===========TEMPLATE=============== -->
+
+<!-- 
+          <section class="generic-section">
+                <h2 class="generic-section-heading">Preprocessors: SASS</h2>
+                <div class="generic-section-content">
+                    <h4 class="title">Configuring SASS</h4>
+                    <div class="content">
+                    
+                    </div>   
+                </div>
+            </section>
+ -->
